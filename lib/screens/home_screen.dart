@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/tabs/hadith_tap.dart';
+import 'package:islami_app/tabs/quran_tap.dart';
+import 'package:islami_app/tabs/radio_tap.dart';
+import 'package:islami_app/tabs/sebha_tap.dart';
+import 'package:islami_app/tabs/time_tap.dart';
 import 'package:islami_app/widgets/Inactive_Icons.dart';
 import 'package:islami_app/widgets/active_Icon.dart';
 import 'package:islami_app/core/theme/App_Colors.dart';
@@ -13,14 +18,39 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int curentIndex = 0;
+  List<String> backgroundsNames = ['quran', 'Hadith', 'sebha', 'radio', 'time'];
+  List<Widget> taps = [
+    QuranTap(),
+    HadithTap(),
+    SebhaTap(),
+    RadioTap(),
+    TimeTap(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+              'assets/images/${backgroundsNames[curentIndex]}_background.png',
+            ),
+            fit: .fill,
+          ),
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 21),
+            child: Column(
+              children: [
+                Image.asset('assets/images/img_header.png', fit: .scaleDown),
+                Expanded(child: taps[curentIndex]),
+              ],
+            ),
+          ),
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: AppColors.primary,
-        type: .fixed,
-        showUnselectedLabels: false,
-        selectedItemColor: AppColors.whiteColor,
         currentIndex: curentIndex,
         onTap: (value) {
           curentIndex = value;
