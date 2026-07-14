@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:islami_app/core/svg_Icons_path.dart';
 import 'package:islami_app/core/theme/App_Colors.dart';
 import 'package:islami_app/core/theme/App_theme.dart';
 import 'package:islami_app/widgets/tabs_services/quran_service/Sura.dart';
 import 'package:islami_app/widgets/tabs_services/quran_service/SuraItemBuilder.dart';
-import 'package:islami_app/widgets/tabs_services/quran_service/SuraLists.dart';
+import 'package:islami_app/widgets/tabs_services/quran_service/quran_services.dart';
 
 class QuranTap extends StatelessWidget {
   @override
@@ -14,8 +17,9 @@ class QuranTap extends StatelessWidget {
         Text('Suras List', style: Theme.of(context).textTheme.titleMedium),
         Expanded(
           child: ListView.separated(
-            itemBuilder: (_, index) =>
-                SuraItemBuilder(sura: SuraLists.getSuraByIndex(index: index)),
+            itemBuilder: (_, index) => SuraItemBuilder(
+              sura: QuranServices.getSuraByIndex(index: index),
+            ),
             separatorBuilder: (_, _) => Divider(indent: 45, endIndent: 45),
             itemCount: 114,
           ),

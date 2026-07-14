@@ -1,6 +1,7 @@
+import 'package:flutter/services.dart';
 import 'package:islami_app/widgets/tabs_services/quran_service/Sura.dart';
 
-class SuraLists {
+class QuranServices {
   static List<String> suraNameAR = [
     "الفاتحه",
     "البقرة",
@@ -356,4 +357,8 @@ class SuraLists {
     suraVersesNumber: versesNumber[index],
     sureNumber: (index + 1).toString(),
   );
+
+  static Future<String> readSuraFile(int num) {
+    return rootBundle.loadString('assets/text/suras_content/$num.txt');
+  }
 }
