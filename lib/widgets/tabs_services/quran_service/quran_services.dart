@@ -361,4 +361,18 @@ class QuranServices {
   static Future<String> readSuraFile(int num) {
     return rootBundle.loadString('assets/text/suras_content/$num.txt');
   }
+
+  static List<Sura> suras = List.generate(114, (int index) {
+    return getSuraByIndex(index: index);
+  });
+
+  static void searchSuras(String value) {
+    suras.clear();
+    for (int i = 0; i < 114; i++) {
+      if (suraNameAR[i].contains(value) ||
+          suraNameEn[i].toLowerCase().contains(value.toLowerCase())) {
+        suras.add(getSuraByIndex(index: i));
+      }
+    }
+  }
 }
