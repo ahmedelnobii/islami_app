@@ -6,4 +6,5 @@ class AppImages {
   static const mostRecentImage = 'assets/images/img_most_recent.png';
   static const sebhaHeadImage = 'assets/images/sebha_head.png';
   static const sebhaBodyImage = 'assets/images/sebha_body.png';
+  static const soundWaveImage = 'assets/images/sound_wave.png';
 }
