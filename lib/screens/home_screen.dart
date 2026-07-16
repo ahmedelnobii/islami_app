@@ -10,7 +10,7 @@ import 'package:islami_app/core/theme/App_Colors.dart';
 import 'package:islami_app/core/svg_Icons_path.dart';
 
 class HomeScreen extends StatefulWidget {
-  static const routName = '/homeScreen';
+  static const routName = '/';
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();

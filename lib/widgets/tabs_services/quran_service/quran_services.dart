@@ -352,6 +352,8 @@ class QuranServices {
     '6',
   ];
 
+  static bool isSeenOnboarging = false;
+
   static Sura getSuraByIndex({required int index}) => Sura(
     suraNameAR: suraNameAR[index],
     suraNameEn: suraNameEn[index],
@@ -390,6 +392,10 @@ class QuranServices {
       Sura sura = getSuraByIndex(index: int.parse(indexString) - 1);
       return sura;
     }).toList();
+
+    bool? seenOnboarding = sharedPref.getBool('isSeenOnboarding');
+
+    isSeenOnboarging = seenOnboarding ?? false;
   }
 
   static Future<void> addSuraToMostRecent(int index) async {
