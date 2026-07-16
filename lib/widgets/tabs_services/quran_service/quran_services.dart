@@ -393,9 +393,9 @@ class QuranServices {
   }
 
   static Future<void> addSuraToMostRecent(int index) async {
-    if (mostRecentlySuras.contains(suras[index])) {
-      mostRecentlySuras.removeAt(mostRecentlySuras.indexOf(suras[index]));
-    }
+    mostRecentlySuras.removeWhere(
+      (sura) => sura.sureNumber == (index + 1).toString(),
+    );
     mostRecentlySuras.add(suras[index]);
     var sura = suras[index];
     List<String> mostRecentIndexes = QuranServices.mostRecentlySuras.map((
