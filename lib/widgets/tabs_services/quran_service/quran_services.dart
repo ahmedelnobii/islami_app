@@ -386,16 +386,15 @@ class QuranServices {
     List<String>? mostResentIndexes = sharedPref.getStringList(
       'mostResentIndexes',
     );
+    bool? seenOnboarding = sharedPref.getBool('isSeenOnboarding');
+    isSeenOnboarging = seenOnboarding ?? false;
+
     if (mostResentIndexes == null) return;
     mostRecentlySuras = mostResentIndexes.map((indexString) {
       int index = int.parse(indexString);
       Sura sura = getSuraByIndex(index: int.parse(indexString) - 1);
       return sura;
     }).toList();
-
-    bool? seenOnboarding = sharedPref.getBool('isSeenOnboarding');
-
-    isSeenOnboarging = seenOnboarding ?? false;
   }
 
   static Future<void> addSuraToMostRecent(int index) async {

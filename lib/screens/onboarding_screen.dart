@@ -51,6 +51,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           children: [
             Expanded(
               child: PageView.builder(
+                scrollDirection: .horizontal,
                 onPageChanged: (index) => {
                   setState(() {
                     currentIndex = index;
@@ -104,8 +105,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     if (currentIndex == onboardingScreens.length - 1) {
                       SharedPreferences sharedPref =
                           await SharedPreferences.getInstance();
-                      sharedPref.setBool('isSeenOnboarding', true);
-                      Navigator.of(context).pushReplacementNamed(HomeScreen.routName);
+                      await sharedPref.setBool('isSeenOnboarding', true);
+                      Navigator.of(
+                        context,
+                      ).pushReplacementNamed(HomeScreen.routName);
                     }
                     if (currentIndex < onboardingScreens.length - 1) {
                       controller.nextPage(
