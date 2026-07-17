@@ -105,7 +105,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       SharedPreferences sharedPref =
                           await SharedPreferences.getInstance();
                       sharedPref.setBool('isSeenOnboarding', true);
-                      Navigator.of(context).pushNamed(HomeScreen.routName);
+                      Navigator.of(context).pushReplacementNamed(HomeScreen.routName);
                     }
                     if (currentIndex < onboardingScreens.length - 1) {
                       controller.nextPage(
