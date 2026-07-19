@@ -1,3 +1,5 @@
+import 'package:islami_app/widgets/tabs_services/hadeth_services/hadeth_item_builder.dart';
+
 class AppImages {
   static const leftCornerImage = 'assets/images/img_left_corner.png';
   static const rightCornerImage = 'assets/images/img_right_corner.png';
@@ -13,4 +15,5 @@ class AppImages {
   static const onboardingFrame3 = 'assets/images/onboarding_frame2.png';
   static const onboardingFrame4 = 'assets/images/onboarding_frame3.png';
   static const onboardingFrame5 = 'assets/images/onboarding_frame4.png';
+  static const hadethBackGround = 'assets/images/hadithcardbackground1.png';
 }
