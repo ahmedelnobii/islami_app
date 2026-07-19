@@ -10,7 +10,7 @@ import 'package:islami_app/core/theme/App_Colors.dart';
 import 'package:islami_app/core/svg_Icons_path.dart';
 
 class HomeScreen extends StatefulWidget {
-  static const routName = '/homeScreen';
+  static const routName = '/';
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 21),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
               children: [
                 Image.asset('assets/images/img_header.png', fit: .scaleDown),

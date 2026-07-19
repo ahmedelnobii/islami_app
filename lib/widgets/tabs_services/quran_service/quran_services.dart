@@ -352,6 +352,8 @@ class QuranServices {
     '6',
   ];
 
+  static bool isSeenOnboarging = false;
+
   static Sura getSuraByIndex({required int index}) => Sura(
     suraNameAR: suraNameAR[index],
     suraNameEn: suraNameEn[index],
@@ -384,6 +386,9 @@ class QuranServices {
     List<String>? mostResentIndexes = sharedPref.getStringList(
       'mostResentIndexes',
     );
+    bool? seenOnboarding = sharedPref.getBool('isSeenOnboarding');
+    isSeenOnboarging = seenOnboarding ?? false;
+
     if (mostResentIndexes == null) return;
     mostRecentlySuras = mostResentIndexes.map((indexString) {
       int index = int.parse(indexString);
@@ -393,9 +398,9 @@ class QuranServices {
   }
 
   static Future<void> addSuraToMostRecent(int index) async {
-    if (mostRecentlySuras.contains(suras[index])) {
-      mostRecentlySuras.removeAt(mostRecentlySuras.indexOf(suras[index]));
-    }
+    mostRecentlySuras.removeWhere(
+      (sura) => sura.sureNumber == (index + 1).toString(),
+    );
     mostRecentlySuras.add(suras[index]);
     var sura = suras[index];
     List<String> mostRecentIndexes = QuranServices.mostRecentlySuras.map((
