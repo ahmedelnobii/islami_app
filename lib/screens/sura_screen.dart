@@ -65,7 +65,10 @@ class _SuraScreenState extends State<SuraScreen> {
             SizedBox(
               height: MediaQuery.sizeOf(context).height * .1,
               width: .infinity,
-              child: Image.asset(AppImages.bottomDecorationImage, fit: .fill),
+              child: Image.asset(
+                AppImages.bottomDecorationImage,
+                fit: .fitWidth,
+              ),
             ),
           ],
         ),

@@ -8,6 +8,7 @@ class HadithTap extends StatelessWidget {
     return CarouselSlider.builder(
       itemCount: 50,
       itemBuilder: (_, index, _) => HadethItemBuilder(index: index),
+      carouselController: CarouselSliderController(),
       options: CarouselOptions(
         height: double.infinity,
         enlargeCenterPage: true,

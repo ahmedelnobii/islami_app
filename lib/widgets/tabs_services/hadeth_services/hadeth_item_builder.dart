@@ -44,7 +44,7 @@ class _HadethItemBuilderState extends State<HadethItemBuilder> {
               ? Column(
                   children: [
                     SizedBox(
-                      height: screenHieght * .10,
+                      height: screenHieght * .09,
                       child: Row(
                         mainAxisAlignment: .spaceBetween,
                         children: [
